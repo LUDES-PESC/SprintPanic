@@ -33,6 +33,35 @@ jobs:
       - name: Check JavaScript syntax
         run: node --check /tmp/sprintpanic.js
 
+      - name: Initialize and verify I18N catalog
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          source = Path("sprintpanic.html").read_text(encoding="utf-8")
+          start = source.find("const I18N=")
+          end = source.find("const COLORS=", start)
+          if start < 0 or end < 0:
+              raise SystemExit("Could not isolate I18N initialization")
+          prelude = source[start:end]
+          audit = r'''
+const __langs = ["pt","en","es","fr","it"];
+const __union = new Set(__langs.flatMap(l => Object.keys(I18N[l] || {})));
+for (const l of __langs) {
+  const table = I18N[l] || {};
+  const missing = [...__union].filter(k => !(k in table));
+  const invalid = Object.entries(table).filter(([k,v]) => typeof v !== "string" || !v.trim());
+  if (missing.length || invalid.length) {
+    console.error(l, {missing: missing.slice(0,20), invalid: invalid.slice(0,20)});
+    process.exit(1);
+  }
+  console.log(l + ": " + Object.keys(table).length + " I18N keys");
+}
+console.log("I18N catalog initialization and key parity passed");
+'''
+          Path("/tmp/i18n-check.js").write_text(prelude + "\n" + audit, encoding="utf-8")
+          PY
+          node /tmp/i18n-check.js
+
       - name: Enforce pure I18N architecture
         run: |
           python - <<'PY'
