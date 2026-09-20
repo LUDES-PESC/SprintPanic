@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b1220">
-<title>Sprint Panic! — Scrum em 10 minutos</title>
+<title>Sprint Panic! v0.5 — Scrum in about 10 minutes</title>
 <style>
 :root{
   --bg:#0b1220;--panel:#111827;--panel2:#182334;--card:#1f2937;
@@ -67,6 +67,7 @@ header{padding:calc(58px + env(safe-area-inset-top)) 11px 7px}
 body.light-mode .menuItem.active{background:#dff3fb;color:#17384a}
 
 h1{font-size:21px;line-height:1.05;margin:0 0 3px;letter-spacing:-.025em}
+.gameVersion{font-size:10px;font-weight:700;color:var(--muted);letter-spacing:0;vertical-align:middle;white-space:nowrap}
 .sub{font-size:11px;color:var(--muted)}
 .goalbox{margin-top:8px;padding:8px 9px;border-left:3px solid var(--accent);background:#0d2231;border-radius:9px;font-size:11px}
 .goalbox b{display:block;margin-top:2px;color:#e8f6ff}
@@ -305,7 +306,7 @@ body.light-mode .toast{background:#ffffff;color:#182230}
 <header>
   <div class="titleRow">
     <button id="menuButton" type="button" class="iconButton" aria-label="Menu" aria-expanded="false">☰</button>
-    <h1>🚀 Sprint Panic!</h1>
+    <h1>🚀 Sprint Panic! <span class="gameVersion">v0.5</span></h1>
     <button id="setupButton" type="button" class="iconButton" aria-label="Setup">⚙️</button>
   </div>
   <div class="sub" data-i18n="header.subtitle">Entregue valor, não tarefas — Scrum em cerca de 10 minutos.</div>
@@ -720,7 +721,7 @@ function setLocalizedText(el,raw){
 }
 
 function applyStaticTranslations(){
- document.documentElement.lang=({pt:"pt-BR",en:"en",es:"es",fr:"fr",it:"it"})[S.lang]||"pt-BR";
+ document.documentElement.lang=({pt:"pt-BR",en:"en",es:"es",fr:"fr",it:"it"})[S.lang]||"en";
  document.querySelectorAll("[data-i18n]").forEach(el=>{
   el.textContent=t(el.dataset.i18n);
  });
@@ -758,7 +759,7 @@ let items=makeItems();
 
 const S={
  sprint:0,maxSprints:4,day:0,maxDays:5,daySeconds:0,dayDuration:8,currentDayDuration:8,phase:"intro",timerId:null,
- theme:"dark",lang:"pt",dailyScenarioHistory:[],needHistory:[],eventHistory:[],completedGoalIds:[],
+ theme:"dark",lang:"en",dailyScenarioHistory:[],needHistory:[],eventHistory:[],completedGoalIds:[],
  baseCapacity:11,wipLimit:2,totalDevelopers:3,
  value:0,quality:100,trust:70,debt:0,goals:0,
  selectedGoal:null,selectedIds:new Set(),focusMode:"balanced",
@@ -1062,7 +1063,7 @@ $("#setupOverlay").addEventListener("click",e=>{
  }
 });
 $("#languageSelect").addEventListener("change",e=>{
- S.lang=["pt","en","es","fr","it"].includes(e.target.value)?e.target.value:"pt";
+ S.lang=["pt","en","es","fr","it"].includes(e.target.value)?e.target.value:"en";
  applyStaticTranslations();
  updateSetupUI();
  renderAll();
