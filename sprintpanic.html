@@ -1488,7 +1488,7 @@ function beginPlanning(){
  $("#decisionChoices").innerHTML="";
  setDecision(
   M("legacy.103"),
-  "Na aba Sprint Backlog, escolha um Sprint Goal. O jogo mostra os PBIs mínimos e a velocidade recente usada como previsão. Selecione trabalho com folga para risco; durante a Sprint, controle WIP e Developers, e incorpore trabalho técnico emergente ao próprio Sprint Backlog."
+  M("planning.guidance")
  );
  setLearn(M("legacy.083"));
  setTab("sprint");renderAll();
@@ -1730,7 +1730,7 @@ function resolveDailyChoice(kind){
    M("legacy.029"),
    kind==="status"
     ?M("daily.badStatus")
-    :"A alternativa preserva uma aparência de previsibilidade, mas ignora o que foi aprendido durante a Sprint."
+    :M("daily.badRigid")
   );
   S.phase="readyDay";renderAll();return;
  }
