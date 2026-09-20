@@ -1,35 +1,37 @@
 # Sprint Panic! 🚀
 
-**Sprint Panic!** é um jogo educacional sobre Scrum, fluxo de trabalho e tomada de decisão em projetos de software.
+[Português](README-pt.md)
 
-O jogador acompanha um time responsável por desenvolver um aplicativo interplanetário de entrega de pizzas. Ao longo de quatro Sprints, precisa definir objetivos, selecionar trabalho, lidar com imprevistos, controlar trabalho em andamento, participar de Daily Scrums, Sprint Reviews e Retrospectives e adaptar o plano sem perder de vista o Product Goal.
+**Sprint Panic!** is an educational game about Scrum, workflow, and decision-making in software projects.
 
-O jogo foi pensado para uso em aulas, treinamentos, workshops e estudo individual.
+The player follows a team responsible for developing an interplanetary pizza-delivery application. Across four Sprints, the player must define goals, select work, handle unexpected events, control work in progress, participate in Daily Scrums, Sprint Reviews, and Retrospectives, and adapt the plan without losing sight of the Product Goal.
+
+The game is designed for classes, training sessions, workshops, and individual study.
 
 ---
 
-## Objetivo pedagógico
+## Educational goal
 
-A proposta não é ensinar Scrum como uma sequência burocrática de cerimônias, mas mostrar como seus elementos se relacionam durante o desenvolvimento de um produto sob incerteza.
+The purpose is not to teach Scrum as a bureaucratic sequence of ceremonies, but to show how its elements interact while developing a product under uncertainty.
 
-O jogo trabalha conceitos como:
+The game addresses concepts such as:
 
 - Product Goal;
 - Product Backlog;
 - Sprint Goal;
 - Sprint Backlog;
-- Incremento;
+- Increment;
 - Definition of Done;
 - Sprint Planning;
 - Daily Scrum;
 - Sprint Review;
 - Sprint Retrospective;
-- adaptação do plano durante a Sprint;
-- trabalho técnico emergente;
-- impedimentos;
-- dívida técnica;
-- qualidade;
-- feedback de stakeholders;
+- adapting the plan during a Sprint;
+- emergent technical work;
+- impediments;
+- technical debt;
+- quality;
+- stakeholder feedback;
 - WIP (*Work in Progress*);
 - swarming;
 - velocity;
@@ -37,225 +39,225 @@ O jogo trabalha conceitos como:
 - Burnup;
 - Cumulative Flow Diagram.
 
-O jogo procura distinguir explicitamente os elementos definidos pelo **Scrum Guide** de práticas complementares frequentemente utilizadas por equipes Scrum.
+The game explicitly distinguishes the elements defined by the **Scrum Guide** from complementary practices often used by Scrum Teams.
 
-Por exemplo, **Velocity, Burndown, Burnup, CFD e limites de WIP não são artefatos ou eventos obrigatórios do Scrum**. Eles aparecem como práticas de apoio à previsão, transparência e gestão do fluxo.
+For example, **Velocity, Burndown, Burnup, CFD, and WIP limits are not mandatory Scrum artifacts or events**. They appear in the game as practices that support forecasting, transparency, and flow management.
 
 ---
 
-## Cenário
+## Scenario
 
-O produto é um aplicativo de entrega de pizzas para Marte.
+The product is a pizza-delivery application for Mars.
 
 ### Product Goal
 
-> Permitir que uma pessoa em Marte escolha, pague e acompanhe uma pizza com confiança.
+> Enable a person on Mars to choose, pay for, and track a pizza with confidence.
 
-O Product Backlog inclui funcionalidades como escolha da pizza, carrinho, endereço marciano, pagamento orbital, recibo, rastreamento, previsão de chegada, tratamento de falhas e acessibilidade.
-
----
-
-## Como jogar
-
-A partida possui **quatro Sprints**.
-
-Cada Sprint representa cinco dias simulados de trabalho.
-
-Fluxo básico:
-
-1. escolher um **Sprint Goal**;
-2. selecionar itens para o **Sprint Backlog**;
-3. iniciar a Sprint;
-4. acompanhar o trabalho do time;
-5. responder a eventos e trabalho emergente;
-6. participar do **Daily Scrum**;
-7. realizar a **Sprint Review**;
-8. realizar a **Sprint Retrospective**;
-9. adaptar o Product Backlog e iniciar a Sprint seguinte.
-
-O botão principal conduz o jogador pelas diferentes fases da simulação.
-
-Sempre que o jogo exige uma decisão, a interface muda automaticamente para a área **Jogo**, onde aparecem a situação e as alternativas.
+The Product Backlog includes capabilities such as choosing a pizza, building a cart, entering a Martian address, orbital payment, receipt and status, delivery tracking, arrival estimates, failure handling, and accessibility.
 
 ---
 
-## Sprint Backlog e fluxo
+## How to play
 
-Durante uma Sprint, o trabalho aparece em três estados:
+A game consists of **four Sprints**.
+
+Each Sprint represents five simulated workdays.
+
+Basic flow:
+
+1. choose a **Sprint Goal**;
+2. select items for the **Sprint Backlog**;
+3. start the Sprint;
+4. follow the team's work;
+5. respond to events and emergent work;
+6. participate in the **Daily Scrum**;
+7. conduct the **Sprint Review**;
+8. conduct the **Sprint Retrospective**;
+9. adapt the Product Backlog and start the next Sprint.
+
+The main button guides the player through the different phases of the simulation.
+
+Whenever the game requires a decision, the interface automatically switches to the **Game** area, where the situation and available alternatives are shown.
+
+---
+
+## Sprint Backlog and flow
+
+During a Sprint, work appears in three states:
 
 ```text
-A FAZER → EM ANDAMENTO → DONE
+TO DO → IN PROGRESS → DONE
 ```
 
-O time possui três Developers.
+The team has three Developers.
 
-O jogador pode iniciar ou pausar itens, reduzir WIP e concentrar Developers em um mesmo item.
+The player can start or pause items, reduce WIP, and concentrate Developers on the same item.
 
 ### WIP
 
-A simulação sugere aproximadamente **dois itens simultaneamente em andamento**.
+The simulation suggests approximately **two items in progress at the same time**.
 
-Esse limite é uma **regra pedagógica da simulação**, não uma regra do Scrum Guide.
+This limit is a **pedagogical rule of the simulation**, not a rule of the Scrum Guide.
 
-WIP excessivo reduz a eficiência simulada por representar troca de contexto, coordenação adicional e dificuldade para levar trabalho até Done.
+Excessive WIP reduces simulated efficiency by representing context switching, additional coordination, and greater difficulty in bringing work to Done.
 
 ### Swarming
 
-Mais de um Developer pode trabalhar sobre o mesmo item.
+More than one Developer can work on the same item.
 
-A simulação utiliza retornos decrescentes:
+The simulation uses diminishing returns:
 
 ```text
-1 Developer  = 1,00×
-2 Developers = 1,65×
-3 Developers = 2,05×
+1 Developer  = 1.00×
+2 Developers = 1.65×
+3 Developers = 2.05×
 ```
 
 ---
 
 ## Velocity
 
-O time é calibrado para uma **velocity típica entre 9 e 13 pontos por Sprint**, aproximadamente centrada em 11 pontos.
+The team is calibrated for a **typical velocity between 9 and 13 points per Sprint**, centered approximately around 11 points.
 
-A primeira Sprint é deliberadamente mais simples, para que o jogador compreenda o fluxo e tenha alta probabilidade de atingir o primeiro Sprint Goal.
+The first Sprint is deliberately simpler so that the player can understand the flow and has a high probability of achieving the first Sprint Goal.
 
-Nas Sprints seguintes, a previsão utiliza o histórico observado.
+In later Sprints, forecasting uses the observed history.
 
-No jogo, velocity é apresentada como:
+In the game, velocity is presented as:
 
-> evidência para previsão do próprio time, não como meta, medida individual de produtividade ou instrumento de comparação entre equipes.
+> evidence for the team's own forecasting, not as a target, an individual productivity measure, or a tool for comparing teams.
 
-Trabalho técnico emergente consome capacidade, mas não aumenta artificialmente a velocity de produto.
+Emergent technical work consumes capacity but does not artificially increase product velocity.
 
 ---
 
-## Trabalho emergente
+## Emergent work
 
-Problemas descobertos durante a Sprint não aumentam silenciosamente o tamanho de um PBI.
+Problems discovered during the Sprint do not silently increase the size of a PBI.
 
-Quando surge trabalho necessário, ele pode aparecer explicitamente no Sprint Backlog.
+When necessary work emerges, it can appear explicitly in the Sprint Backlog.
 
-Exemplo:
+Example:
 
 ```text
-💳 Pagamento orbital
-└── ⚙️ Atualizar autenticação da API
+💳 Orbital payment
+└── ⚙️ Update API authentication
 
-🛰️ Rastrear entrega
-└── 🐛 Corrigir erro de atualização de status
+🛰️ Track delivery
+└── 🐛 Fix status-update error
 ```
 
-Esses itens podem representar trabalho técnico, defeitos, integração, atualizações de dependências, segurança ou infraestrutura.
+These items can represent technical work, defects, integration, dependency updates, security, or infrastructure work.
 
-Um PBI não pode chegar a Done enquanto possuir trabalho bloqueador ainda incompleto.
+A PBI cannot reach Done while it still has incomplete blocking work.
 
 ---
 
-## Eventos
+## Events
 
-A partir da segunda Sprint, podem surgir eventos inesperados.
+Starting with the second Sprint, unexpected events may occur.
 
-### Pessoas
+### People
 
-- doença de uma pessoa do time;
-- gripe afetando mais de um Developer;
-- afastamento parcial;
-- Product Owner temporariamente indisponível.
+- one team member becomes ill;
+- flu affects more than one Developer;
+- partial absence;
+- temporary Product Owner unavailability.
 
-### Infraestrutura
+### Infrastructure
 
-- falta de energia;
-- Internet fora do ar;
-- VPN indisponível;
-- notebook quebrado;
-- certificado expirado;
-- limite do serviço de CI;
-- ambiente de testes instável.
+- power outage;
+- Internet outage;
+- VPN unavailable;
+- broken laptop;
+- expired certificate;
+- CI service quota reached;
+- unstable test environment.
 
-### Dependências e bibliotecas
+### Dependencies and libraries
 
 - Release Candidate (RC);
-- patch com correções de bugs;
-- atualização de segurança;
-- nova versão major incompatível;
-- mudanças de API e dependências.
+- patch release with bug fixes;
+- security update;
+- incompatible major version;
+- API and dependency changes.
 
-### Engenharia
+### Engineering
 
-- testes flaky;
-- conflito de merge;
-- regressões;
-- dependências ocultas;
-- automação de testes;
-- reutilização;
-- cache de build.
+- flaky tests;
+- merge conflicts;
+- regressions;
+- hidden dependencies;
+- test automation;
+- reuse opportunities;
+- build caching.
 
-Nem todo evento é negativo: alguns representam oportunidades de melhoria.
+Not every event is negative: some represent improvement opportunities.
 
 ---
 
-## Qualidade e dívida técnica
+## Quality and technical debt
 
-A simulação acompanha:
+The simulation tracks:
 
-- valor entregue;
-- qualidade;
-- confiança dos stakeholders;
-- dívida técnica.
+- delivered value;
+- quality;
+- stakeholder trust;
+- technical debt.
 
-Dívida técnica pode surgir quando o jogador, por exemplo:
+Technical debt may arise, for example, when the player:
 
-- adia uma correção importante;
-- aceita um risco de segurança;
-- utiliza um workaround;
-- tenta entregar antes da Definition of Done;
-- troca qualidade por velocidade de curto prazo.
+- postpones an important fix;
+- accepts a security risk;
+- uses a workaround;
+- tries to deliver before meeting the Definition of Done;
+- trades quality for short-term speed.
 
 ---
 
 ## Sprint Review
 
-A Sprint Review não é tratada apenas como demonstração.
+The Sprint Review is not treated merely as a demonstration.
 
-O jogador precisa interpretar feedback e decidir se ele deve:
+The player must interpret feedback and decide whether to:
 
-- alterar a ordem do Product Backlog;
-- registrar nova necessidade;
-- manter a ordem atual até obter mais evidências;
-- ajustar prioridades;
-- reconsiderar riscos e condições de lançamento.
+- change the ordering of the Product Backlog;
+- record a new need;
+- keep the current ordering until more evidence is available;
+- adjust priorities;
+- reconsider risks and launch conditions.
 
 ---
 
 ## Sprint Retrospective
 
-Na Retrospective, o jogador escolhe melhorias relacionadas ao que ocorreu na Sprint, como:
+In the Retrospective, the player chooses improvements related to what happened during the Sprint, such as:
 
-- reduzir WIP;
-- automatizar testes;
-- melhorar refinamento;
-- explicitar dependências;
-- reduzir trabalho repetitivo;
-- melhorar integração.
-
----
-
-## Métricas e gráficos
-
-O jogo apresenta:
-
-- **Burndown** — trabalho restante durante a Sprint;
-- **Burnup** — valor entregue versus escopo;
-- **Cumulative Flow Diagram** — trabalho a fazer, em andamento e Done;
-- **Velocity** — pontos de PBIs de produto concluídos por Sprint.
-
-Essas visualizações apoiam a compreensão do fluxo e da previsão, mas não são apresentadas como componentes obrigatórios do Scrum.
+- reducing WIP;
+- automating tests;
+- improving refinement;
+- making dependencies explicit;
+- reducing repetitive work;
+- improving integration.
 
 ---
 
-## Internacionalização
+## Metrics and charts
 
-O jogo está disponível em cinco idiomas:
+The game presents:
+
+- **Burndown** — remaining work during the Sprint;
+- **Burnup** — delivered value versus scope;
+- **Cumulative Flow Diagram** — work to do, in progress, and Done;
+- **Velocity** — points from product PBIs completed per Sprint.
+
+These visualizations support understanding of flow and forecasting, but are not presented as mandatory Scrum components.
+
+---
+
+## Internationalization
+
+The game is available in five languages:
 
 - Português;
 - English;
@@ -263,168 +265,169 @@ O jogo está disponível em cinco idiomas:
 - Français;
 - Italiano.
 
-O idioma é escolhido no **Setup**.
+The language is selected in **Setup**.
 
-A tradução cobre interface, Sprint Goals, eventos, perguntas, alternativas, Daily Scrum, Sprint Review, Retrospective, feedback e debrief final.
+Translations cover the interface, Sprint Goals, events, questions, alternatives, Daily Scrum, Sprint Review, Retrospective, feedback, and the final debrief.
 
 ---
 
 ## Interface
 
-A interface foi pensada com prioridade para dispositivos móveis.
+The interface is designed with mobile devices as a priority.
 
-O topo possui uma barra fixa com:
+The top contains a fixed bar with:
 
-- menu hambúrguer;
-- título;
+- hamburger menu;
+- title;
 - Setup.
 
-O menu permite acessar:
+The menu provides access to:
 
-- Jogo;
+- Game;
 - Product Backlog;
 - Sprint Backlog;
 - Burndown;
 - Burnup;
-- Fluxo;
+- Flow;
 - Velocity;
 - Scrum;
 - Debrief.
 
 ---
 
-## Execução
+## Running the game
 
-Não há instalação, servidor ou dependências externas.
+There is no installation, server, or external dependency.
 
-Basta abrir o arquivo HTML em um navegador moderno.
+Simply open the HTML file in a modern browser.
 
 ```text
 sprint_panic.html
 ```
 
-O jogo também pode ser publicado diretamente com **GitHub Pages**.
+The game can also be published directly with **GitHub Pages**.
 
 ---
 
-## Arquitetura
+## Architecture
 
-O projeto é deliberadamente uma **single-file application**.
+The project is deliberately implemented as a **single-file application**.
 
-Toda a aplicação está contida em um único HTML:
+The complete application is contained in one HTML file:
 
 ```text
 HTML
 CSS
 JavaScript
-dados
-traduções
-regras da simulação
-gráficos
+data
+translations
+simulation rules
+charts
 interface
 ```
 
-Não são necessários:
+It does not require:
 
-- frameworks JavaScript;
-- bibliotecas externas;
-- backend;
-- banco de dados;
-- CDN;
-- chamadas de rede.
+- JavaScript frameworks;
+- external libraries;
+- backend services;
+- databases;
+- CDNs;
+- network calls.
 
-Depois de carregado, o jogo pode funcionar totalmente offline.
+Once loaded, the game can run entirely offline.
 
 ---
 
-## Estrutura sugerida do repositório
+## Suggested repository structure
 
 ```text
 /
 ├── README.md
+├── README-pt.md
 ├── sprint_panic.html
 ├── LICENSE
 └── docs/
     └── screenshots/
 ```
 
-O jogo em si continua sendo um único arquivo HTML.
+The game itself remains a single HTML file.
 
 ---
 
-## Uso em aula
+## Classroom use
 
-Uma partida completa pode ser usada como:
+A complete game can be used as:
 
-- introdução ao Scrum;
-- exercício após aula teórica;
-- atividade em grupos;
-- demonstração de fluxo;
-- discussão sobre Product Backlog × Sprint Backlog;
-- estudo de decisões sob incerteza;
-- introdução a métricas ágeis.
+- an introduction to Scrum;
+- an exercise after a theoretical class;
+- a group activity;
+- a flow demonstration;
+- a discussion of Product Backlog versus Sprint Backlog;
+- a study of decisions under uncertainty;
+- an introduction to agile metrics.
 
-Perguntas úteis para discussão:
+Useful discussion questions include:
 
-1. Por que determinados Sprint Goals foram ou não alcançados?
-2. Quando o time deveria reduzir WIP?
-3. Quando trabalho técnico deve aparecer no Sprint Backlog?
-4. Quando feedback deve alterar o Product Backlog?
-5. Por que velocity não deve ser tratada como meta?
-6. Quais decisões produziram dívida técnica?
-7. Quais eventos deveriam ou não alterar o Sprint Goal?
+1. Why were some Sprint Goals achieved while others were not?
+2. When should the team reduce WIP?
+3. When should technical work appear in the Sprint Backlog?
+4. When should feedback change the Product Backlog?
+5. Why should velocity not be treated as a target?
+6. Which decisions created technical debt?
+7. Which events should or should not change the Sprint Goal?
 
 ---
 
-## Referência conceitual
+## Conceptual reference
 
-A principal referência é:
+The main reference is:
 
 > Schwaber, K.; Sutherland, J. **The Scrum Guide — The Definitive Guide to Scrum: The Rules of the Game.** 2020.
 
 <https://scrumguides.org/>
 
-O jogo também incorpora práticas de fluxo e métricas frequentemente usadas em ambientes ágeis, procurando distingui-las dos elementos formais do Scrum Guide.
+The game also incorporates flow practices and metrics commonly used in agile environments while attempting to distinguish them from the formal elements of the Scrum Guide.
 
 ---
 
-## Contribuindo
+## Contributing
 
-Contribuições são bem-vindas, especialmente:
+Contributions are welcome, especially:
 
-- novos eventos;
-- revisão das traduções;
-- melhorias de acessibilidade;
-- novos cenários;
-- balanceamento;
-- testes em dispositivos móveis;
-- melhorias de interface;
-- material didático;
-- estudos sobre uso do jogo em aula.
+- new events;
+- translation review;
+- accessibility improvements;
+- new scenarios;
+- simulation balancing;
+- testing on mobile devices;
+- interface improvements;
+- teaching material;
+- studies about classroom use of the game.
 
-Ao propor uma regra, é útil indicar se ela representa:
+When proposing a rule, it is useful to indicate whether it represents:
 
-1. uma regra formal do Scrum;
-2. uma prática comum;
-3. uma simplificação pedagógica;
-4. uma regra específica da simulação.
+1. a formal Scrum rule;
+2. a common practice;
+3. a pedagogical simplification;
+4. a simulation-specific rule.
 
-Essa distinção evita que decisões de game design sejam confundidas com prescrições do Scrum Guide.
-
----
-
-## Créditos
-
-**Sprint Panic!** foi concebido como um jogo educacional sobre Scrum, fluxo de trabalho e tomada de decisão em projetos de software.
-
-Projeto desenvolvido no contexto de atividades de ensino e pesquisa em Engenharia de Software, Jogos e Simulações.
+This distinction helps prevent game-design decisions from being confused with prescriptions from the Scrum Guide.
 
 ---
 
-## Licença
+## Credits
 
-Defina aqui a licença desejada para o projeto.
+**Sprint Panic!** was conceived as an educational game about Scrum, workflow, and decision-making in software projects.
 
-Opções comuns para software educacional aberto incluem MIT, BSD-3-Clause, Apache-2.0 e GPL-3.0.
+The project was developed in the context of teaching and research activities in Software Engineering, Games, and Simulations.
 
-Se o projeto estiver vinculado institucionalmente a uma universidade ou projeto de pesquisa, recomenda-se verificar também as regras institucionais aplicáveis antes de definir a licença definitiva.
+---
+
+## License
+
+Define the desired license for the project here.
+
+Common options for open educational software include MIT, BSD-3-Clause, Apache-2.0, and GPL-3.0.
+
+If the project is institutionally linked to a university or research project, applicable institutional rules should also be checked before choosing the final license.
