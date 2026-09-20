@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Learning Scrum by Making Decisions — the story and educational rationale behind Sprint Panic!">
+<title>Learning Scrum by Making Decisions — Sprint Panic!</title>
+<style>
+:root{--bg:#08111f;--panel:#101c2e;--text:#f4f7fb;--muted:#b1bed0;--accent:#4cc9f0;--line:#253650}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.72}
+a{color:var(--accent)}
+header{border-bottom:1px solid var(--line);background:rgba(8,17,31,.95);position:sticky;top:0;backdrop-filter:blur(10px)}
+.bar{width:min(900px,calc(100% - 32px));margin:auto;display:flex;justify-content:space-between;align-items:center;min-height:60px}
+.bar a{text-decoration:none;font-weight:800}
+article{width:min(780px,calc(100% - 32px));margin:64px auto 90px}
+.kicker{text-transform:uppercase;color:var(--accent);letter-spacing:.12em;font-weight:800;font-size:.78rem}
+h1{font-size:clamp(2.6rem,7vw,5rem);line-height:1;letter-spacing:-.05em;margin:.2em 0 .3em}
+h2{font-size:1.75rem;line-height:1.2;margin-top:2.2em}
+p,li{font-size:1.06rem}
+.lead{font-size:1.3rem;color:var(--muted)}
+blockquote{margin:2em 0;padding:.2em 0 .2em 1.3em;border-left:4px solid var(--accent);font-size:1.25rem;color:#dce6f4}
+pre{white-space:pre-wrap;background:#050b14;border:1px solid var(--line);padding:18px;border-radius:14px}
+hr{border:0;border-top:1px solid var(--line);margin:3em 0}
+.cta{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:24px;margin-top:40px}
+.btn{display:inline-block;background:var(--accent);color:#06111b;text-decoration:none;font-weight:900;padding:12px 17px;border-radius:10px;margin-right:8px}
+</style>
+</head>
+<body>
+<header><div class="bar"><a href="./">← Sprint Panic!</a><a href="sprintpanic.html">Play the game</a></div></header>
+<article>
+<div class="kicker">Scrum education · simulation · serious games</div>
+<h1>Learning Scrum by Making Decisions: Introducing Sprint Panic!</h1>
+<p class="lead">Scrum is easy to describe. It is considerably harder to understand.</p>
+
+<p>A learner can memorize the accountabilities, events, artifacts, and commitments in a relatively short time. They can learn that a Sprint has a Sprint Goal, that Developers adapt the Sprint Backlog, that a Daily Scrum is held every working day, and that a Sprint Review involves stakeholders.</p>
+
+<p>Yet this does not necessarily prepare someone to answer the questions that appear when a real Sprint becomes messy.</p>
+
+<p>What happens when a Developer gets sick? What should happen when a critical library releases a security update in the middle of the Sprint? Should a newly discovered technical task become part of the Sprint Backlog? What happens when work is almost complete but a defect prevents it from meeting the Definition of Done? Should the team start another item or swarm on the work already in progress?</p>
+
+<p>These decisions are where Scrum starts becoming interesting.</p>
+
+<h2>From knowing Scrum to experiencing Scrum</h2>
+
+<p><strong>Sprint Panic!</strong> is a small browser game designed around this problem.</p>
+
+<p>The player manages a Scrum Team developing an intentionally absurd product: an interplanetary pizza-delivery application for customers on Mars.</p>
+
+<p>The Product Goal is simple:</p>
+
+<blockquote>Enable a person on Mars to choose, pay for, and track a pizza with confidence.</blockquote>
+
+<p>The player goes through four simulated Sprints. Each Sprint includes Planning, several simulated working days, Daily Scrums, a Sprint Review, and a Retrospective.</p>
+
+<p>The game is deliberately short. A complete session should fit into a classroom exercise, workshop, or individual learning session rather than becoming a long project-management simulation.</p>
+
+<p>But the main objective is not to reproduce Scrum mechanically. It is to force decisions.</p>
+
+<h2>The Sprint Goal is more important than finishing everything</h2>
+
+<p>At the beginning of each Sprint, the player chooses a Sprint Goal and selects Product Backlog Items.</p>
+
+<p>The simulation then introduces a tension that experienced teams know well: the Sprint Goal matters more than simply completing the largest possible number of disconnected items.</p>
+
+<p>A team may discover that its capacity is lower than expected. New technical work may appear. An infrastructure problem may consume part of a day.</p>
+
+<p>The relevant question becomes: <strong>What should the Developers change while preserving the Sprint Goal?</strong></p>
+
+<p>This also helps address a common misunderstanding: the Sprint Backlog is not a frozen contract created during Sprint Planning. It is a plan by and for the Developers, and it evolves as more is learned.</p>
+
+<h2>The Daily Scrum is not a status meeting</h2>
+
+<p>One of the most important design choices in Sprint Panic! concerns the Daily Scrum.</p>
+
+<p>The game does not ask each virtual Developer to report what they did yesterday, what they will do today, and what is blocking them. Instead, the player is given a situation.</p>
+
+<p>Perhaps too many items are in progress. Perhaps one item is close to Done while several others have just started. Perhaps unexpected technical work has appeared. Perhaps everything is actually going well.</p>
+
+<p>The player then chooses whether the team should reduce work in progress, swarm on an item, update the Sprint Backlog, protect quality, focus more strongly on the Sprint Goal, or simply continue with the current plan.</p>
+
+<p>The important lesson is that inspection does not require change for the sake of change. A Daily Scrum may conclude that the existing plan is still appropriate.</p>
+
+<h2>Emergent technical work should be visible</h2>
+
+<p>Imagine that the team is implementing orbital payment and discovers that the authentication mechanism of an external API has changed.</p>
+
+<p>That work should not magically disappear inside the original estimate. Sprint Panic! can create a new technical item in the Sprint Backlog:</p>
+
+<pre>Orbital Payment
+└── Update API Authentication</pre>
+
+<p>The same mechanism is used for defects, integration problems, expired certificates, security patches, flaky tests, and other forms of emergent work.</p>
+
+<p>This makes an important concept visible: learning during development changes the plan.</p>
+
+<h2>Done means Done</h2>
+
+<p>The simulation treats the Definition of Done as a real constraint.</p>
+
+<p>A Product Backlog Item that has been implemented but still has a blocking defect or unfinished integration work cannot simply become Done.</p>
+
+<p>The game therefore creates an uncomfortable but useful situation: something may look almost complete while still producing no usable Increment.</p>
+
+<p>The player can sometimes take shortcuts, but those decisions create consequences such as technical debt, lower quality, or reduced stakeholder trust.</p>
+
+<h2>Flow practices without pretending they are Scrum rules</h2>
+
+<p>Sprint Panic! also introduces practices that are common in Agile environments but are not prescribed by the Scrum Guide.</p>
+
+<p>For example, the simulation uses a suggested WIP limit, swarming, velocity, Burndown, Burnup, and a Cumulative Flow Diagram.</p>
+
+<p>The distinction is intentional. A learner should not leave the game believing that story points, velocity, WIP limits, or Burndown charts are mandatory parts of Scrum. They are tools that may help a team.</p>
+
+<p>In the simulation, the team has three Developers and normally performs best with only a small number of items simultaneously in progress. When one item reaches Done, available Developers can pull the next priority item or swarm on existing work.</p>
+
+<p>The model is simplified, but the simplification creates something that can be discussed: Why did reducing WIP help? Why did opening more work make delivery slower? Why should velocity be used for forecasting rather than as a productivity target?</p>
+
+<h2>Things go wrong</h2>
+
+<p>Starting with the second Sprint, the environment becomes less friendly.</p>
+
+<p>Events may include team illness, power outages, Internet or VPN failures, broken equipment, expired certificates, CI limitations, flaky automated tests, merge conflicts, new library releases, security patches, and incompatible major versions.</p>
+
+<p>Some events are harmful. Others are opportunities.</p>
+
+<p>A bug-fix release of a dependency may be worth adopting immediately. A Release Candidate containing an attractive feature may not be. A critical security update creates a very different decision from an optional major-version migration.</p>
+
+<p>There is deliberately no generic answer such as “always update” or “never change dependencies during a Sprint.” The player must consider the Sprint Goal, risk, quality, and available capacity.</p>
+
+<h2>The Sprint Review changes the future</h2>
+
+<p>Sprint Review decisions focus on evidence about the product.</p>
+
+<p>Stakeholders may reveal that customers abandon an order when they cannot see an estimated delivery time. They may request a visually attractive feature with little evidence of value. Accessibility may suddenly become a release condition.</p>
+
+<p>The question is not whether the stakeholder is “right.” The question is what this new information means for the Product Backlog and progress toward the Product Goal.</p>
+
+<p>The Review therefore becomes an inspection and adaptation event rather than a ceremonial demonstration.</p>
+
+<h2>A game is a conversation starter</h2>
+
+<p>Sprint Panic! is not intended to be a Scrum simulator capable of predicting real software projects.</p>
+
+<p>Its numbers are artificial. Its Developers are simplified. Its velocity is calibrated. Its work items are pizzas, orbital payments, and Martian addresses.</p>
+
+<p>That is deliberate.</p>
+
+<p>The purpose of the model is not to reproduce reality perfectly. The purpose is to create decisions that make Scrum concepts discussable.</p>
+
+<p>After a game, a facilitator can ask:</p>
+<ul>
+<li>Why was the Sprint Goal achieved or missed?</li>
+<li>Which Daily Scrum decision changed the outcome?</li>
+<li>When should the team have reduced WIP?</li>
+<li>Which technical work needed to become visible?</li>
+<li>Was accepting technical debt ever justified?</li>
+<li>Which stakeholder feedback should reorder the Product Backlog?</li>
+<li>Which metrics were useful, and which could become dangerous if treated as targets?</li>
+</ul>
+
+<p>Those conversations are arguably more valuable than the score itself.</p>
+
+<h2>Try it, break it, and improve it</h2>
+
+<p>Sprint Panic! is implemented as a single HTML file. There is no server, installation process, external library, or account. It can run locally and offline, which makes it easy to use in classrooms and workshops.</p>
+
+<p>The interface is available in Portuguese, English, Spanish, French, and Italian.</p>
+
+<p>The project is being developed openly, and the intention is for Scrum educators, trainers, practitioners, students, and curious teams to use it, challenge its assumptions, suggest new events, improve its translations, and experiment with it.</p>
+
+<p>Scrum is fundamentally about learning through inspection and adaptation. Perhaps learning Scrum should work the same way.</p>
+
+<div class="cta">
+  <h2 style="margin-top:0">Play Sprint Panic!</h2>
+  <p>Run it directly in your browser or inspect the source and contribute on GitHub.</p>
+  <a class="btn" href="sprintpanic.html">Play the game</a>
+  <a href="https://github.com/LUDES-PESC/SprintPanic">View repository</a>
+</div>
+</article>
+</body>
+</html>
