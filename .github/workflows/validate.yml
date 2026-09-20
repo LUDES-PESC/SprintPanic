@@ -79,7 +79,7 @@ jobs:
           )
           allowed = {
               "pedido", "pagamento", "entrega", "confiança", "cosmético", "técnico",
-              "jogo", "fluxo", "Português", "Français",
+              "jogo", "fluxo", "tab-fluxo", "Português", "Français",
               "pt-BR", "pt", "en", "es", "fr", "it",
           }
 
