@@ -1,0 +1,104 @@
+name: Validate Sprint Panic
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Extract JavaScript
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          source = Path("sprintpanic.html").read_text(encoding="utf-8")
+          scripts = re.findall(r"<script[^>]*>(.*?)</script>", source, re.S | re.I)
+          if not scripts:
+              raise SystemExit("No JavaScript block found")
+          Path("/tmp/sprintpanic.js").write_text("\n".join(scripts), encoding="utf-8")
+          print(f"Extracted {len(scripts)} script block(s)")
+          PY
+
+      - name: Check JavaScript syntax
+        run: node --check /tmp/sprintpanic.js
+
+      - name: Enforce pure I18N architecture
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          source = Path("sprintpanic.html").read_text(encoding="utf-8")
+
+          forbidden = [
+              "RUNTIME_TRANSLATIONS",
+              "localizeFreeText",
+              "translateRuntimeDOM",
+              "SCENARIO_TEXT",
+              "ITEM_KIND_TEXT",
+              "setLocalizedText",
+          ]
+          failures = [token for token in forbidden if token in source]
+          if re.search(r"\bEL\(", source):
+              failures.append("EL(...)")
+
+          # Remove the single central I18N catalog and its Object.assign extensions
+          # from the residual-language audit. Everything after function t() is
+          # executable/rendering code and must not contain Portuguese UI prose.
+          start = source.find("const I18N={")
+          end = source.find("function t(", start)
+          if start < 0 or end < 0:
+              raise SystemExit("Central I18N catalog/function t() not found")
+          audit = source[:start] + source[end:]
+
+          audit = re.sub(r"/\*[\s\S]*?\*/", "", audit)
+          audit = re.sub(r"^\s*//.*$", "", audit, flags=re.M)
+
+          literal_re = re.compile(r"""(["'`])((?:\\.|(?!\1)[\s\S])*?)\1""")
+          pt_signal = re.compile(
+              r"[ãõçáéíóúâêôà]|"
+              r"\b(?:Não|não|Qual|Como|time|trabalho|dia|melhoria|decisão|defeito|"
+              r"qualidade|dívida|capacidade|planejamento|pedido|cliente|falha|risco|"
+              r"bloqueio|produto|confiança|reordenar|registrar|ignorar|manter|esperar|"
+              r"começar|corrigir|tratar|reduzir|atingido|concluída|concluído|aprendizado|"
+              r"objetivo|previsão|pausar|retomado|continua|Critério|Valor|Nenhum|Aguarde|"
+              r"Toque|Fechar|Preto|Branco|Fluxo|Antes|Fim|Começou|começou|entrou|está|"
+              r"estão|foi|pode|deve)\b",
+              re.I,
+          )
+          allowed = {
+              "pedido", "pagamento", "entrega", "confiança", "cosmético", "técnico",
+              "jogo", "fluxo", "Português", "Français",
+              "pt-BR", "pt", "en", "es", "fr", "it",
+          }
+
+          residual = []
+          for match in literal_re.finditer(audit):
+              text = match.group(2).strip()
+              if len(text) < 3 or len(text) > 700 or text in allowed:
+                  continue
+              if pt_signal.search(text):
+                  residual.append(text)
+
+          if residual:
+              failures.append(
+                  "Portuguese UI/runtime literals outside I18N:\n  - "
+                  + "\n  - ".join(residual[:20])
+              )
+
+          if failures:
+              raise SystemExit("I18N validation failed:\n- " + "\n- ".join(failures))
+
+          print("Pure I18N checks passed")
+          PY
