@@ -426,8 +426,7 @@ The project was developed in the context of teaching and research activities in 
 
 ## License
 
-Define the desired license for the project here.
+MIT License
 
-Common options for open educational software include MIT, BSD-3-Clause, Apache-2.0, and GPL-3.0.
+Copyright (c) 2026 Geraldo Xexéo
 
-If the project is institutionally linked to a university or research project, applicable institutional rules should also be checked before choosing the final license.
